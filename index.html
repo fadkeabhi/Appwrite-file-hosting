@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@11.0.0"></script>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+
+    <h1>
+        Simple file managment website by DJABRJ
+    </h1>
+
+    <form id="loginForm">
+        <input type="email" id="email">
+        <input type="password" id="pass">
+        <input type="button" onclick="login()" value="login()">
+    </form>
+    <div id="afterLogin" style="display : none;">
+        <form id="uploadForm">
+            <input type="file" id="fileInput" value="chooseFile()">
+            <input type="button" onclick="upload()" value="uploadFile()">
+            <div id="msg"></div>
+        </form>
+        <div id="tablearea"></div>
+        <div id="pagingarea"></div>
+        <input type="button" onclick="logOut()" value="logOut()">
+    </div>
+
+    <p>
+        The website is currently in development stage. only alpha version is available.Only works on chrome browser.
+    </p>
+
+</body>
+
+</html>
