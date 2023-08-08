@@ -1,6 +1,116 @@
+<!DOCTYPE html>
 <html>
 
 <head>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('dark-wallpaper.jpg');
+            background-color: #291e33; 
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #362443; 
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 50px;
+            color: transparent;
+            background-image: linear-gradient(to left, #553c9a, #b393d3);
+            font-weight: 600;
+            background-clip: text;
+            -webkit-background-clip: text;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            border: 3px solid #553c9a;
+            padding: 16px;
+            width: 100%;
+            background-image: linear-gradient(to left, #553c9a, #b393d3);
+            box-sizing: border-box;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        input[type=email],
+        input[type=password],
+        input[type=file],
+        input[type=button] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: block;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            border: 2px solid #a994e2;
+            color: #553c9a;
+        }
+
+        input[type=button] {
+            background-color: #553c9a;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .file-upload-container {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .file-upload-container h2 {
+            color: #553c9a;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #file-list-container {
+            padding: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        .file-item {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .file-item a {
+            color: #4f1184;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .file-item a:hover {
+            color: #0099ff;
+        }
+        .container>div {
+            margin-top: 20px;
+        }
+    
+    </style>
+
     <link rel="stylesheet" href="style.css">
 
     <script src="https://cdn.jsdelivr.net/npm/appwrite@11.0.0"></script>
@@ -9,29 +119,35 @@
 
 <body>
 
-    <h1>
-        Simple file managment website by DJABRJ
-    </h1>
-
-    <form id="loginForm">
-        <input type="email" id="email">
-        <input type="password" id="pass">
-        <input type="button" onclick="login()" value="login()">
-    </form>
-    <div id="afterLogin" style="display : none;">
-        <form id="uploadForm">
-            <input type="file" id="fileInput" value="chooseFile()">
-            <input type="button" onclick="upload()" value="uploadFile()">
-            <div id="msg"></div>
-        </form>
-        <div id="tablearea"></div>
-        <div id="pagingarea"></div>
-        <input type="button" onclick="logOut()" value="logOut()">
+    <div class="container">
+        <h1>File Sharing Website</h1>
+        <div>
+            <form id="loginForm">
+                <input type="email" id="email" placeholder="Email">
+                <input type="password" id="pass" placeholder="Password">
+                <input type="button" onclick="login()" value="Log In">
+            </form>
+        </div>
+        <div id="afterLogin" style="display: none;">
+            <div class="file-upload-container">
+                <h2>Upload Files</h2>
+                <form id="uploadForm">
+                    <input type="file" id="fileInput">
+                    <input type="button" onclick="upload()" value="Upload" class="upload-button">
+                    <div id="msg"></div>
+                </form>
+                <div class="List-item">
+                    <h2>Uploaded Files</h2>
+                    <div id="pagingarea"></div>
+                    <div id="tablearea"></div>
+                    <div id="file-list-container"></div>
+                </div>
+                <input type="button" onclick="logOut()" value="Log Out">
+            </div>
+        </div>
     </div>
 
-    <p>
-        The website is currently in development stage. only alpha version is available.Only works on chrome browser.
-    </p>
+    >
 
 </body>
 
